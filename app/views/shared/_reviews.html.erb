@@ -5,7 +5,7 @@
     <div class="card-product-infos text-center">
       <h2 class="mx-auto"> "<em><%= review.comment %></em>"</h2>
       <div class="stars">
-        <% num = review.rating %>
+        <% num = review.rating.to_i %>
           <% num.times do %>
             <i class="fa-solid fa-star mx-auto" style="color: #f3d512;"></i>
           <% end %>

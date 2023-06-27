@@ -84,3 +84,5 @@ production:
   database: movie_watchlist_production
   username: movie_watchlist
   password: <%= ENV["MOVIE_WATCHLIST_DATABASE_PASSWORD"] %>
+
+
