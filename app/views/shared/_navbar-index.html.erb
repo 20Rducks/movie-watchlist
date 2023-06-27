@@ -1,0 +1,44 @@
+<nav class="navbar bg-body-tertiary fixed-top">
+  <div class="container-fluid">
+    <a class="nav-link active mr-3" aria-current="page" href="/"><%= image_tag "popcorn.png" , class: 'logo' %></a>
+
+    <div class="offcanvas-buttons d-flex">
+      <%# Bookmark Tab %>
+      <div data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+        <div class="btn-banner mx-2">Bookmark</div>
+      </div>
+      <div class="offcanvas offcanvasbookmark offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Make a bookmark</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="my-2">
+          <%= simple_form_for [@list, @bookmark_new] do |f| %>
+            <%= f.association :movie, required: false  %>
+            <%= f.input :comment, placeholder: "Great selection.."  %>
+            <%= f.submit "New Bookmark", class: "btn-banner" %>
+          <% end %>
+        </div>
+      </div>
+
+      <%# Review Tab %>
+      <div data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbarReview" aria-controls="offcanvasNavbarReview" aria-label="Toggle navigation">
+        <div class="btn-banner mx-2">Review</div>
+      </div>
+      <div class="offcanvas offcanvasreview offcanvas-end" tabindex="-1" id="offcanvasNavbarReview" aria-labelledby="offcanvasNavbarReviewLabel">
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Leave your review</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div>
+          <%= simple_form_for [@list, @review] do |f| %>
+            <%= f.input :comment, placeholder: "So much fun..", required: false %>
+            <%= f.input :rating, as: :select, collection: (1..5), required: false, prompt: "Star Rating" %>
+            <%= f.submit "New Rating", class: "btn-banner" %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</nav>

@@ -1,0 +1,36 @@
+body {
+  background-color: rgba(226, 224, 224, 0.542)
+}
+.card-show {
+  height: 100%;
+  max-height: 50vw;
+
+  .card-img-show {
+    height: 50%;
+    object-fit: fill;
+  }
+
+  .card-body-show {
+    height: 30%;
+    display: flex !important;
+    flex-direction: column;
+  }
+
+  .card-text-show {
+    text-align: justify;
+    text-justify: inter-word;
+  }
+
+  .card-footer-show {
+    position: relative;
+    height: 11%;
+  }
+
+  .card-bottom {
+    display: inline-flex;
+    position: absolute;
+    width: 88%;
+    bottom: 10%;
+    justify-content: space-between
+  }
+}

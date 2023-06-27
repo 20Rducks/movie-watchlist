@@ -1,0 +1,16 @@
+<% @list.reviews.each do |review| %>
+  <div class="card-product d-flex justify-content-around">
+    <i class="fa-solid fa-user-ninja fa-2xl"></i>
+
+    <div class="card-product-infos text-center">
+      <h2 class="mx-auto"> "<em><%= review.comment %></em>"</h2>
+      <div class="stars">
+        <% num = review.rating %>
+          <% num.times do %>
+            <i class="fa-solid fa-star mx-auto" style="color: #f3d512;"></i>
+          <% end %>
+      </div>
+    </div>
+
+  </div>
+<% end %>

@@ -1,0 +1,42 @@
+<%= render "shared/navbar" %>
+
+<div class="container-fluid">
+  <div class="row head-row">
+      <%= image_tag "cinema.jpg", class: "banner w-100 h-100" %>
+      <div class="banner-text text-center py-5 align-center w-50">
+        <h1> Amazing Movie Lists</h1>
+        <h5>Even create your own!</h5>
+        <a class="btn-banner" href="https://troopl.com/20rwillcox" >Reach Out</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <% if @lists.any? %>
+      <% @lists.each do |list| %>
+          <div class="col-sm-6 col-md-4 col-lg-3 mt-3">
+        <%= link_to list_path(list) do %>
+            <div class="card index-card m-2 p-2">
+
+              <div class="card-overlay">
+                <% if list.photo.key %>
+                  <%=  cl_image_tag list.photo.key, class: 'card-img-top' %>
+                <% end %>
+                <div class="card-title index-card-title w-90 text-center">
+                  <h2><strong><%= list.name %></strong></h2>
+                </div>
+                <div class="text-center">
+                  <%= link_to "Remove List", list_path(list), class: "btn btn-danger", data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete this list?" } %>
+                </div>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+    <% else %>
+      <em>Sorry, No Lists Yet</em>
+    <% end  %>
+  </div>
+</div>

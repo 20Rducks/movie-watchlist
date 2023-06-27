@@ -1,0 +1,46 @@
+<%= render "shared/navbar-index" %>
+
+<div class="container-fluid">
+  <div class="row head-row">
+      <%= image_tag "cinema.jpg", class: "banner w-100 h-100" %>
+      <div class="banner-text text-center py-5 align-center w-50">
+        <h1><%= @list.name %></h1>
+        <h5>Bookmarks and list reviews</h5>
+        <a class="btn-banner" href="https://troopl.com/20rwillcox" >Reach Out</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row d-flex">
+    <% @bookmarks.each do |bookmark| %>
+      <div class="col col-sm-6 col-md-4 col-lg-4 mt-5">
+        <div class="card card-show">     <%# h-100 %>
+        <% if !bookmark.movie.poster_url.empty? %>
+          <%= image_tag bookmark.movie.poster_url, class: 'card-img-show' %>
+        <% end %>
+          <div class="card-body card-body-show">
+            <h5 class="card-title"> <%= bookmark.movie.title %></h5>
+            <p class="card-text card-text-show align-center"> <%= bookmark.movie.overview %></p><br>
+            <div class="card-bottom">
+              <div><i class="fa-solid fa-star align-bottom mb-1"></i><%= bookmark.movie.rating %></div>
+              <p><%= link_to "Delete", bookmark_path(bookmark), data: {turbo_method: :delete, turbo_confirm:"Are you sure?"} %></p>
+            </div>
+          </div>
+          <div class="card-footer card-footer-show text-center">
+            <p class="card-text"><strong> My comment: </strong> <br><%= bookmark.comment %></p>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<div class="container mt-5">
+<h2 class="text-center"> List Reviews </h2>
+  <div class="review-cards d-flex justify-content-between">
+
+  <%= render "shared/reviews" %>
+  </div>
+</div>

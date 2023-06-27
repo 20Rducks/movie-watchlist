@@ -1,1 +1,73 @@
 // Specific CSS for your home-page
+.banner {
+  display: flex;
+  justify-content: center;
+  padding: 0px;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  max-width: 100%;
+  object-position: center;
+  margin-top: auto;
+}
+
+.banner-text {
+  top: -75%;
+  max-width: 40%;
+  margin: auto;
+  position: relative;
+  background-color: rgba(128, 128, 128, 0.2);
+  color: whitesmoke;
+}
+
+.head-row {
+  height: 70vh;
+}
+
+.logo {
+  max-height: 8vh;
+  filter: drop-shadow(0 0 0.5rem gray);
+}
+
+
+
+.index-card {
+  transition: 0.4s;
+  height: 52vh;
+  max-height: 100%;
+
+  &:hover {
+    transform: scale(1.02);
+  }
+
+  img {
+    min-height: 50vh;
+    object-fit: cover;
+  }
+
+  .index-card-title {
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-decoration: none;
+    color: white;
+    background-color:rgba(0, 0, 0, 0.318)
+  }
+
+  .card-img-top {
+    filter: grayscale(100%);
+  }
+
+}
+
+.btn-danger {
+    position: absolute;
+    size-adjust: inherit;
+    top: 88%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-decoration: none;
+    color: white;
+}
+
